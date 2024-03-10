@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-image: url('https://cdn.pixabay.com/photo/2014/07/06/13/55/calculator-385506_1280.jpg');
+            background-size: cover; 
+            background-position: above;
+            background-repeat: no-repeat;
+            
+            font-family: Aria
+        }
+
+        h1 {
+            color: #ff0000;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #898585;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #0000001a;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #960d0d;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>CGPA Calculator</h1>
+    <form id="gpaForm">
+        <label for="numSubjects">Number of Subjects:</label>
+        <input type="number" id="numSubjects" name="numSubjects" min="1" required>
+
+        <div id="subjectInputs"></div>
+
+        <button type="button" onclick="generateSubjectInputs()">Generate Subject Inputs</button>
+        <button type="button" onclick="calculateGPA()">Calculate GPA</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function generateSubjectInputs() { //this part is genarate input subject you make edit to use this code
+            const numSubjects = document.getElementById('numSubjects').value;
+            const subjectInputsDiv = document.getElementById('subjectInputs');
+
+            subjectInputsDiv.innerHTML = '';
+
+            for (let i = 1; i <= numSubjects; i++) {
+                subjectInputsDiv.innerHTML += `
+                    <label for="subject${i}">Subject ${i}:</label>
+                    <input type="text" id="subject${i}" name="subject${i}" placeholder="Subject ${i}" required>
+
+                    <label for="credits${i}">Credits ${i}:</label>
+                    <input type="number" id="credits${i}" name="credits${i}" min="1" required>
+
+                    <label for="grade${i}">Grade ${i}:</label>
+                    <input type="text" id="grade${i}" name="grade${i}" placeholder="Grade ${i}" required>
+                `;
+            }
+        }
+
+        function calculateGPA() {// this part is used to calculate cgpa you make edit to use this code
+            const numSubjects = document.getElementById('numSubjects').value;
+            let totalCredits = 0;
+            let totalGradePoints = 0;
+
+            for (let i = 1; i <= numSubjects; i++) {
+                const credits = parseInt(document.getElementById(`credits${i}`).value);
+                const grade = document.getElementById(`grade${i}`).value.toUpperCase();
+
+                totalCredits += credits;
+                totalGradePoints += calculateGradePoint(grade) * credits;
+            }
+
+            const gpa = totalGradePoints / totalCredits;
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = `Your GPA is: ${gpa.toFixed(2)}`;
+        }
+
+        function calculateGradePoint(grade) {// this part is used to grade calcaulates 
+            switch (grade) {
+                case 'A':
+                    return 4.0;
+                case 'B':
+                    return 3.0;
+                case 'C':
+                    return 2.0;
+                case 'D':
+                    return 1.0;
+                case 'F':
+                    return 0.0;
+                default:
+                    return 0.0;
+            }
+        }
+    </script>
+</body>
+</html>

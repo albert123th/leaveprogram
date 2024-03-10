@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>applyleave</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Application</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <head>
+        <link rel="stylesheet" href="style.css">
+                <meta charset="utf-89">
+                <meta name="viewpoint"content="width=device-width,initial-scale=1">
+        </head>
+</head>
+<body>
+    <div class="container">
+        <h1>Leave Application</h1>
+        <form id="leaveForm">
+            <label for="employee_name">Student Name:</label>
+            <input type="text" id="employee_name" name="employee_name" required>
+            
+            <form id="leavereson">
+                <label for="leave_type">reason</label>
+                <input type="text" id="leave_type" name="leave_type" required>
+
+            <label for="HOD">HOD:</label>
+            <select id="HOD" name="HOD" required>
+                <option value="BhamaDevi">Bhama Devi</option>
+                <option value="PratheepKumar">Pratheep Kumar</option>
+                <!-- Add more HOD options as needed -->
+            </select>
+
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required>
+
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" required>
+
+            <label for="reason">Reason for Leave:</label>
+            <textarea id="reason" name="reason" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+            
+        </form>
+    </div>
+
+    <script>
+        const leaveForm = document.getElementById("leaveForm");
+
+        leaveForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from actually submitting
+
+            // Collect form data
+            const formData = new FormData(leaveForm);
+            const searchParams = new URLSearchParams(formData).toString();
+
+            // Redirect to gpt.html with the form data in the URL
+            window.location.href = `gpt.html?${searchParams}`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* style.css */
+
+.container {
+    margin-top: 50px;
+}
+
+.panel-heading {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}

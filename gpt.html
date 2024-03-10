@@ -1,0 +1,71 @@
+<!-- display.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Details</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Leave Application Request</h1>
+        <div id="displayDetails"></div>
+    </div>
+    
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Get form data from URL parameters
+        const studentName = getUrlParameter('employee_name');
+        const leaveType = getUrlParameter('leave_type');
+        const hod = getUrlParameter('HOD');
+        const startDate = getUrlParameter('start_date');
+        const endDate = getUrlParameter('end_date');
+        const reason = getUrlParameter('reason');
+
+       // Display the form data
+        
+const displayDetailsDiv = document.getElementById('displayDetails');
+displayDetailsDiv.innerHTML = `
+<table border="">
+                <tr>
+                    <th>....</th>
+                    <th>Reason</th>
+                </tr>
+                <tr>
+                    <td><strong>Student Name:</strong></td>
+                    <td>${studentName}</td>
+                </tr>
+                <tr>
+                    <td><strong>Leave Type:</strong></td>
+                    <td>${leaveType}</td>
+                </tr>
+                <tr>
+                    <td><strong>HOD:</strong></td>
+                    <td>${hod}</td>
+                </tr>
+                <tr>
+                    <td><strong>Start Date:</strong></td>
+                    <td>${startDate}</td>
+                </tr>
+                <tr>
+                    <td><strong>End Date:</strong></td>
+                    <td>${endDate}</td>
+                </tr>
+                <tr>
+                    <td><strong>Reason for Leave:</strong></td>
+                    <td>${reason}</td>
+                </tr>
+            </table>
+        `;
+</script>
+</html>
+
+
