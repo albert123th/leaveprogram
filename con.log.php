@@ -5,12 +5,12 @@ use MongoDB\Client as MongoDBClient;
 
 // MongoDB URI
 $uri = "mongodb://localhost:27017";
-$databaseName = "your_database";
+$databaseName = "userdata";
 $collection = "users"; // Collection name where user data is stored
 
 // Connect to MongoDB
 $mongoClient = new MongoDBClient($uri);
-$db = $mongoClient->$databaseName;
+$db = $mongoClient->$databaselog;
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
