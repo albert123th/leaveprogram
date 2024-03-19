@@ -7,7 +7,7 @@ const port = 3000;
 
 // MongoDB connection URI
 const mongoURI = 'mongodb+srv://athv:<albert@123>@cluster0.fqmpkrn.mongodb.net/';
-const dbName = 'your_database_name';
+const dbName = 'userdata';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
