@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 
 // MongoDB connection URI
-const mongoURI = 'your_mongodb_connection_uri';
+const mongoURI = 'mongodb+srv://athv:<albert@123>@cluster0.fqmpkrn.mongodb.net/';
 const dbName = 'your_database_name';
 
 app.use(bodyParser.urlencoded({ extended: true }));
