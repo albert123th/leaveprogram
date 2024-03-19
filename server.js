@@ -6,13 +6,13 @@ const app = express();
 const port = 3000;
 
 // MongoDB connection URI
-const mongoURI = 'mongodb+srv://athv:<albert@123>@cluster0.fqmpkrn.mongodb.net/';
+const mongoURI = 'https://script.google.com/macros/s/AKfycbweQS8rhUqj_rAI4Xwj77qY-7swfxL5SuBFyEKotfPVnNvh01gXtJh_EDuc1DJqjorr/execection_uri';
 const dbName = 'userdata';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/registrationform.html');
 });
 
 app.post('/login', (req, res) => {
