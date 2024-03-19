@@ -5,7 +5,7 @@ use MongoDB\Client as MongoDBClient;
 
 // Connect to MongoDB
 $mongoClient = new MongoDBClient('mongodb://localhost:27017');
-$collection = $mongoClient->your_database->users;
+$collection = $mongoClient->userdata->users;
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
