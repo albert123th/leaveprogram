@@ -45,18 +45,32 @@
     </div>
 
     <script>
-        const leaveForm = document.getElementById("leaveForm");
+        document.getElementById('leaveForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
 
-        leaveForm.addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent the form from actually submitting
+            var formData = new FormData(this);
 
-            // Collect form data
-            const formData = new FormData(leaveForm);
-            const searchParams = new URLSearchParams(formData).toString();
-
-            // Redirect to gpt.html with the form data in the URL
-            window.location.href = `gpt.html?${searchParams}`;
+            // Send form data to doPost function
+            fetch('YOUR_SCRIPT_URL', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                alert(data); // Show success message
+                document.getElementById('leaveForm').reset(); // Reset the form
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                alert('There was an error. Please try again.');
+            });
         });
+
     </script>
 </body>
 </html>
