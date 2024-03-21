@@ -13,59 +13,30 @@
         <div id="displayDetails"></div>
     </div>
     
-    <script>
-        // Function to get URL parameters
-        function getUrlParameter(name) {
-            name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
-            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            const results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        }
+   <script>
+  function submitForm() {
+    var url = 'YOUR_WEB_APP_URL';
+    var formData = new FormData();
+    formData.append('employee_name', studentName);
+    formData.append('leave_type', leaveType);
+    formData.append('HOD', hod);
+    formData.append('start_date', startDate);
+    formData.append('end_date', endDate);
+    formData.append('reason', reason);
+    
+    fetch(url, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+  }
 
-        // Get form data from URL parameters
-        const studentName = getUrlParameter('employee_name');
-        const leaveType = getUrlParameter('leave_type');
-        const hod = getUrlParameter('HOD');
-        const startDate = getUrlParameter('start_date');
-        const endDate = getUrlParameter('end_date');
-        const reason = getUrlParameter('reason');
-
-       // Display the form data
-        
-const displayDetailsDiv = document.getElementById('displayDetails');
-displayDetailsDiv.innerHTML = `
-<table border="">
-                <tr>
-                    <th>....</th>
-                    <th>Reason</th>
-                </tr>
-                <tr>
-                    <td><strong>Student Name:</strong></td>
-                    <td>${studentName}</td>
-                </tr>
-                <tr>
-                    <td><strong>Leave Type:</strong></td>
-                    <td>${leaveType}</td>
-                </tr>
-                <tr>
-                    <td><strong>HOD:</strong></td>
-                    <td>${hod}</td>
-                </tr>
-                <tr>
-                    <td><strong>Start Date:</strong></td>
-                    <td>${startDate}</td>
-                </tr>
-                <tr>
-                    <td><strong>End Date:</strong></td>
-                    <td>${endDate}</td>
-                </tr>
-                <tr>
-                    <td><strong>Reason for Leave:</strong></td>
-                    <td>${reason}</td>
-                </tr>
-            </table>
-        `;
+  // Call the submitForm function when the page loads
+  submitForm();
 </script>
+
 </html>
 
 
