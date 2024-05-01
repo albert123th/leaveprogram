@@ -1,7 +1,7 @@
 /* CSS for main.css */
 
-/* Center the content vertically and horizontally */
-body, html {
+/* Center the container vertically and horizontally */
+html, body {
   height: 100%;
   margin: 0;
   display: flex;
@@ -9,14 +9,14 @@ body, html {
   align-items: center;
 }
 
-/* Style for the leave program heading */
-h1 {
-  margin: 80px;
+/* Style for the container */
+.container {
+  text-align: center;
 }
 
 /* Style for the button container */
-.btn-container {
-  text-align: center;
+.button-container {
+  margin-top: 20px; /* Adjust as needed */
 }
 
 /* Style for the button */
