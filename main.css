@@ -1,0 +1,36 @@
+/* CSS for main.css */
+
+/* Center the content vertically and horizontally */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the leave program heading */
+h1 {
+  margin: 80px;
+}
+
+/* Style for the button container */
+.btn-container {
+  text-align: center;
+}
+
+/* Style for the button */
+.btn {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/* Hover effect for the button */
+.btn:hover {
+  background-color: #0056b3;
+}
