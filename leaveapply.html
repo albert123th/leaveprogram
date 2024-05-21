@@ -1,27 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>applyleave</title>
+    <title>Leave Application</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leave Application</title>
-    <link rel="stylesheet" href="mystyle.css">
-    <head>
-        <link rel="stylesheet" href="style.css">
-                <meta charset="utf-89">
-                <meta name="viewpoint"content="width=device-width,initial-scale=1">
-        </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="mystle.css">
+    <style>
+        header {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        header nav {
+            float: right;
+            margin-right: 20px;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            float: left;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        header nav ul li a:hover {
+            background-color: #111;
+        }
+
+        .container {
+            padding: 80px 20px 20px 20px; /* Adjusted for fixed navbar */
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="leave.html">Application</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="container">
         <h1>Leave Application</h1>
         <form id="leaveForm">
             <label for="employee_name">Student Name:</label>
             <input type="text" id="employee_name" name="employee_name" required>
             
-            <form id="leavereson">
-                <label for="leave_type">reason</label>
-                <input type="text" id="leave_type" name="leave_type" required>
+            <label for="student_regno">Student Reg No:</label>
+            <input type="text" id="student_regno" name="student_regno" required>
+
+            <label for="leave_type">Reason:</label>
+            <input type="text" id="leave_type" name="leave_type" required>
 
             <label for="HOD">HOD:</label>
             <select id="HOD" name="HOD" required>
@@ -39,8 +89,7 @@
             <label for="reason">Reason for Leave:</label>
             <textarea id="reason" name="reason" rows="4" required></textarea>
 
-            <button type="submit">Submit</button>
-            
+            <button type="submit" style="padding: 2.5px;">Submit</button>
         </form>
     </div>
 
@@ -51,7 +100,7 @@
             var formData = new FormData(this);
 
             // Send form data to doPost function
-            fetch('https://script.google.com/macros/s/AKfycbweQS8rhUqj_rAI4Xwj77qY-7swfxL5SuBFyEKotfPVnNvh01gXtJh_EDuc1DJqjorr/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbwWMxDAgjiX0IPGSSfBPVHX-GSvW8NPC_MhdVV_J5jyFnn6N5FMqhpEo5sbn2xIy07y/exec', { // Replace with your Google Apps Script web app URL
                 method: 'POST',
                 body: formData
             })
@@ -70,7 +119,6 @@
                 alert('There was an error. Please try again.');
             });
         });
-
     </script>
 </body>
 </html>
